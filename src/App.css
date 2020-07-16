@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  width: 90%;
+  max-width: 524px;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+
+a {
+  color: green;
+}
