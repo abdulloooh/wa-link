@@ -49,6 +49,7 @@ class App extends Component {
   };
 
   formatNumber = (number) => {
+    if (!number) return;
     if (number[0] === "0" && number.length === 11) {
       //Nigeria number with format starting with "0"
       let processNumber = number.split("");
@@ -60,6 +61,7 @@ class App extends Component {
   };
 
   formatLink = (number, message) => {
+    if (!number) return;
     return message
       ? `https://api.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(
           message

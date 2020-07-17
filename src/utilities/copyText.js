@@ -1,4 +1,4 @@
-import toastr from "toastr";
+import { toast } from "react-toastify";
 export function copyText(text) {
   //   // select the text field
   //   text.select();
@@ -8,32 +8,43 @@ export function copyText(text) {
   //   document.execCommand("copy");
 
   //   //Alert the copied text
-
+  console.log(text);
   if (text) {
-    if (typeof navigator.clipboard == "undefined") {
-      var textArea = document.createElement("textarea");
-      textArea.value = text;
-      textArea.style.position = "fixed"; //avoid scrolling to bottom
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
+    //on http where navigator.clipboard ain't allowed
+    typeof (navigator.clipboard == "undefined")
+      ? noNavigatorCopy(text)
+      : navigatorCopy(text);
+  } else toast.error("C'mon 😥, nothing to copy");
 
-      try {
-        var successful = document.execCommand("copy");
-        var msg = successful
-          ? '"hey! Link copied! 🙂 Go and head and paste it in your whatsapp message now"'
-          : "Something went wrong";
-        toastr.info(msg);
-      } catch (err) {
-        toastr.warning("Was not possible to copy the text: ", err);
-      }
+  function noNavigatorCopy(text) {
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed"; //avoid scrolling to bottom
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
 
-      document.body.removeChild(textArea);
-      return;
+    try {
+      var successful = document.execCommand("copy");
+      var msg = successful
+        ? '"hey! Link copied! 🙂 Go and head and paste it in your whatsapp message now"'
+        : "Something went wrong";
+      toast.success(msg);
+    } catch (err) {
+      toast.error(
+        "That went wrong 😧 but don't fret, give it another shot 👍 "
+      );
     }
+
+    document.body.removeChild(textArea);
+    return;
+  }
+
+  function navigatorCopy(text) {
     navigator.clipboard.writeText(text);
-    alert(
+    toast.success(
       "hey! Link copied! 🙂 Go and head and paste it in your whatsapp message now"
     );
-  } else alert("C'mon 😥, nothing to copy");
+    return;
+  }
 }
