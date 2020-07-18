@@ -11,10 +11,10 @@ export function copyText(text) {
   console.log(text);
   if (text) {
     //on http where navigator.clipboard ain't allowed
-    typeof (navigator.clipboard == "undefined")
+    typeof (navigator.clipboard === "undefined")
       ? noNavigatorCopy(text)
       : navigatorCopy(text);
-  } else toast.error("C'mon 😥, nothing to copy");
+  } else toast.error("C'mon 😠 , nothing to copy");
 
   function noNavigatorCopy(text) {
     var textArea = document.createElement("textarea");
@@ -27,7 +27,9 @@ export function copyText(text) {
     try {
       var successful = document.execCommand("copy");
       var msg = successful
-        ? '"hey! Link copied! 🙂 Go and head and paste it in your whatsapp message now"'
+        ? "hey! Link copied! 🙂 Go and head and paste it in your whatsapp message now (" +
+          text +
+          ") "
         : "Something went wrong";
       toast.success(msg);
     } catch (err) {
@@ -43,7 +45,9 @@ export function copyText(text) {
   function navigatorCopy(text) {
     navigator.clipboard.writeText(text);
     toast.success(
-      "hey! Link copied! 🙂 Go and head and paste it in your whatsapp message now"
+      "hey! Link copied! 🙂 Go and head and paste it in your whatsapp message now (" +
+        text +
+        ") "
     );
     return;
   }

@@ -13,9 +13,12 @@
   }
 }
 
-.App-header {
+body {
   background-color: #282c34;
-  min-height: 100vh;
+}
+
+.App-header {
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,11 +42,16 @@
 
 .container {
   width: 90%;
-  max-width: 524px;
-  line-height: 25px;
+  max-width: 650px;
+  /* line-height: 25px; */
   margin-bottom: 20px;
 }
 
 a {
   color: green;
+}
+
+.install {
+  font-family: monospace;
+  font-weight: bold;
 }
