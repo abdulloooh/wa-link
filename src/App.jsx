@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import Info from "./component/info";
 import Button from "./component/common/button";
 import Details from "./component/details";
+import Footer from "./component/footer";
 import { copyText } from "./utilities/copyText";
 import "./App.css";
+import "./footer.css";
 import { toast } from "react-toastify";
 
 class App extends Component {
@@ -15,43 +17,46 @@ class App extends Component {
 
   componentDidMount = () => {
     try {
-      // const showInfo = localStorage.getItem("wa-link-info");
-      // if (showInfo === "hide") this.setState({ showInfo: false });
+      const showInfo = localStorage.getItem("wa-link-info");
+      if (showInfo === "hidden") this.setState({ showInfo: false });
     } catch (err) {}
   };
 
   render() {
     const { number, message, showInfo } = this.state;
     return (
-      <div className="App App-header">
-        <main className="container">
-          {showInfo ? (
-            <>
-              <Info />
-              <Button
-                handleClick={this.dismiss}
-                value="Let's get down to business"
-              />{" "}
-              <hr />
-              <Button
-                handleClick={this.dismissForever}
-                value="Dismiss this info forever"
-              />
-            </>
-          ) : (
-            <>
-              {" "}
-              <Details
-                number={number}
-                message={message}
-                onNumberChange={this.handleNumber}
-                onMessageChange={this.handleMessage}
-              />
-              <Button handleClick={this.generateLink} value="Generate Link" />
-            </>
-          )}
-        </main>
-      </div>
+      <>
+        <div className="App App-header">
+          <main className="container">
+            {showInfo ? (
+              <>
+                <Info />
+                <Button
+                  handleClick={this.dismiss}
+                  value="Let's get down to business"
+                />{" "}
+                <hr />
+                <Button
+                  handleClick={this.dismissForever}
+                  value="Dismiss this info forever"
+                />
+              </>
+            ) : (
+              <>
+                {" "}
+                <Details
+                  number={number}
+                  message={message}
+                  onNumberChange={this.handleNumber}
+                  onMessageChange={this.handleMessage}
+                  generateLink={this.generateLink}
+                />
+              </>
+            )}
+          </main>
+        </div>
+        {!showInfo && <Footer />}
+      </>
     );
   }
 
@@ -61,7 +66,7 @@ class App extends Component {
 
   dismissForever = () => {
     try {
-      localStorage.setItem("wa-link-info", "hide");
+      localStorage.setItem("wa-link-info", "hidden");
       this.setState({ showInfo: false });
     } catch (error) {
       toast.error(
@@ -95,6 +100,10 @@ class App extends Component {
       //Nigeria number with format starting with "0"
       let processNumber = number.split("");
       processNumber[0] = "234";
+      return processNumber.join("");
+    } else if (number[0] === "+") {
+      let processNumber = number.split("");
+      processNumber.shift();
       return processNumber.join("");
     } else {
       return number;
