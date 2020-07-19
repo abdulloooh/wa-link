@@ -29,7 +29,7 @@ WhatsappLink is a tool to generate WhatsApp contact and message URLs easily.
 - CSS, [Bootstrap](http://getbootstrap.com/)
 - JavaScript, [React.js](https://reactjs.org/)
 
-### Working on WhatsAppr locally ###
+### Working on WhatsappLink locally ###
 - Clone the repository locally. 
 - Navigate to the directory. `cd wa-link`.
 - Run `npm install` to install dependencies.
