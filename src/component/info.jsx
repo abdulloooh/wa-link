@@ -6,14 +6,13 @@ const Info = () => {
       <p>
         Hey there{" "}
         <span role="img" aria-label="waving-hand-emoji">
-          👋
+          👋 
         </span>
       </p>
       <p>
-        Do you always need to share an advert on whatsapp and you need to
-        provide a clickable link for customers to easily chat you up directly
-        but find it difficult or stressful to do always?
+        Do you want to feel the wave of constant accessibility?
       </p>
+      <p>Do you need to share your advert or broadcast messages on Whatsapp with a quick and direct link for customers to chat you up easily?</p>
       <p>
         Something like:
         <br /> "DM me with {""}
@@ -30,8 +29,8 @@ const Info = () => {
 
       <p>You can do so in simple steps below</p>
       <p className="install" style={{ color: "lightgreen" }}>
-        Ps: For easy access, You should accept the installation of this site on
-        your device as an App when you are prompted to
+        Ps: For easy access, You need to accept the installation of this site on
+        your device as an App when you are prompted to do so
       </p>
     </section>
   );
