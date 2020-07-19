@@ -10,7 +10,7 @@
 
 WhatsappLink is a tool to generate WhatsApp contact and message URLs easily.
 
-> WhatsApplink is an open-source PWA using the MIT license hosted at http://whatslink.tk
+> WhatsappLink is an open-source PWA using the MIT license hosted at http://whatslink.tk
 
 ## How To Use: ##
 
