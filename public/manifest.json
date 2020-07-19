@@ -1,6 +1,6 @@
 {
-  "short_name": "Wa-Link",
-  "name": "Whatsapp link",
+  "short_name": "WhatsappLink",
+  "name": "Whatsapp link Generator",
   "icons": [
     {
       "src": "favicon.ico",
