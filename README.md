@@ -1,8 +1,8 @@
-# [WhatsApplink](https://whatlink.herokuapp.com)
+# [WhatsApplink](http://whatslink.tk)
 
 <!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/31dfe589-8aeb-4a06-9684-1723244129ba/deploy-status)](https://app.netlify.com/sites/whatsappr/deploys) -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Website](https://img.shields.io/website?down_message=Offline&label=Website&up_message=Online&url=https%3A%2F%2Fwhatlink.herokuapp.com)](https://whatlink.herokuapp.com)
+[![Website](https://img.shields.io/website?down_message=Offline&label=Website&up_message=Online&url=https%3A%2F%2Fwhatlink.herokuapp.com)](http://whatslink.tk)
 <!-- ![Star this repository](https://img.shields.io/github/stars/recurshawn/WhatsAppr?style=social) -->
 <!-- [![Follow me on Twitter](https://img.shields.io/twitter/follow/abdulloooh?style=social)](https://twitter.com/abdulloooh) -->
 <!-- [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/recurshawn) -->
@@ -10,7 +10,7 @@
 
 WhatsApplink is a tool to generate WhatsApp contact and message URLs easily.
 
-> WhatsApplink is an open-source PWA using the MIT license hosted at https://whatlink.herokuapp.com
+> WhatsApplink is an open-source PWA using the MIT license hosted at http://whatslink.tk
 
 ## How To Use: ##
 
