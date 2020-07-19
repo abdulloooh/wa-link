@@ -8,7 +8,7 @@
 <!-- [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/recurshawn) -->
 
 
-WhatsApplink is a tool to generate WhatsApp contact and message URLs easily.
+WhatsappLink is a tool to generate WhatsApp contact and message URLs easily.
 
 > WhatsApplink is an open-source PWA using the MIT license hosted at http://whatslink.tk
 
