@@ -26,9 +26,7 @@ export function copyText(text) {
     try {
       var successful = document.execCommand("copy");
       var msg = successful
-        ? "hey! Link copied! 🙂 Go and head and paste it in your whatsapp message now (" +
-          text +
-          ") "
+        ? "hey! Link copied! 🙂 Go and head and paste it in your broadcast messsage now"
         : "Something went wrong";
       toast.success(msg);
     } catch (err) {
@@ -44,9 +42,7 @@ export function copyText(text) {
   function navigatorCopy(text) {
     navigator.clipboard.writeText(text);
     toast.success(
-      "hey! Link copied! 🙂 Go and head and paste it in your whatsapp message now (" +
-        text +
-        ") "
+      "hey! Link copied! 🙂 Go and head and paste it in your broadcast message now"
     );
     return;
   }

@@ -58,24 +58,26 @@ class App extends Component {
                   onBlur={this.handleBlur}
                 />
                 <Spinner loading={loading} />
-                <Form inline style={{ marginTop: "20px" }}>
-                  <FormControl
-                    value={linkAvailable || ""}
-                    onFocus={this.handleFocus}
-                    style={{ height: "20px", width: "200px" }}
-                    type="text"
-                    placeholder="Search"
-                    className="mr-sm-2"
-                    readOnly
-                  />
-                  <Button
-                    style={{ height: "26px" }}
-                    variant="outline-info"
-                    onClick={() => copyText(linkAvailable)}
-                  >
-                    Copy Link
-                  </Button>
-                </Form>
+                {linkAvailable && (
+                  <Form inline style={{ marginTop: "20px" }}>
+                    <FormControl
+                      value={linkAvailable || ""}
+                      onFocus={this.handleFocus}
+                      style={{ height: "20px", width: "200px" }}
+                      type="text"
+                      placeholder="Search"
+                      className="mr-sm-2"
+                      readOnly
+                    />
+                    <Button
+                      style={{ height: "26px" }}
+                      variant="outline-info"
+                      onClick={() => copyText(linkAvailable)}
+                    >
+                      Copy Link
+                    </Button>
+                  </Form>
+                )}
               </>
             )}
           </main>
@@ -128,12 +130,24 @@ class App extends Component {
     this.setState({ loading: true });
     let { number, message } = this.state;
     let processedNumber = this.formatNumber(number);
-    const { data } = await this.formatLink(processedNumber, message);
+    if (!processedNumber) {
+      toast.error("C'mon 😠 , nothing to copy");
+      this.setState({ loading: false });
+      return;
+    }
+    try {
+      var { data } = await this.formatLink(processedNumber, message, "yes");
+    } catch (error) {
+      data = this.formatLink(processedNumber, message, "no");
+    }
+
     if (data) {
       window.navigator.vibrate(100);
       this.setState({ loading: false });
+      this.setState({ linkAvailable: data.shortUrl || data });
+    } else {
+      toast.error("Network Error, Try again");
     }
-    this.setState({ linkAvailable: data.shortUrl });
   };
 
   formatNumber = (number) => {
@@ -152,7 +166,7 @@ class App extends Component {
     }
   };
 
-  formatLink = (number, message) => {
+  formatLink = (number, message, shouldItShort = "no") => {
     if (!number) return;
     const link = message
       ? `https://api.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(
@@ -160,11 +174,8 @@ class App extends Component {
         )}`
       : `https://wa.me/${number}`;
 
-    try {
-      return http.post("/", { destination: link });
-    } catch (error) {
-      return link;
-    }
+    if (shouldItShort === "yes") return http.post("/", { destination: link });
+    else return link;
   };
 }
 
