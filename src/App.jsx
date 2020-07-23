@@ -1,18 +1,22 @@
 import React, { Component } from "react";
+import { Form, Button, FormControl } from "react-bootstrap";
 import Info from "./component/info";
-import Button from "./component/common/button";
+import CustomButton from "./component/common/button";
 import Details from "./component/details";
 import Footer from "./component/footer";
-import { copyText } from "./utilities/copyText";
+import { copyText } from "./services/copyToClipBoard";
 import "./App.css";
 import "./footer.css";
 import { toast } from "react-toastify";
+import http from "./services/httpService";
+import Spinner from "./component/common/spinner";
 
 class App extends Component {
   state = {
     number: "",
     message: "",
     showInfo: true,
+    loading: false,
   };
 
   componentDidMount = () => {
@@ -23,7 +27,7 @@ class App extends Component {
   };
 
   render() {
-    const { number, message, showInfo } = this.state;
+    const { number, message, showInfo, linkAvailable, loading } = this.state;
     return (
       <>
         <div className="App App-header">
@@ -31,12 +35,12 @@ class App extends Component {
             {showInfo ? (
               <>
                 <Info />
-                <Button
+                <CustomButton
                   handleClick={this.dismiss}
                   value="Let's get down to business"
                 />{" "}
                 <hr />
-                <Button
+                <CustomButton
                   handleClick={this.dismissForever}
                   value="Dismiss this info forever"
                 />
@@ -50,7 +54,28 @@ class App extends Component {
                   onNumberChange={this.handleNumber}
                   onMessageChange={this.handleMessage}
                   generateLink={this.generateLink}
+                  onFocus={this.handleFocus}
+                  onBlur={this.handleBlur}
                 />
+                <Spinner loading={loading} />
+                <Form inline style={{ marginTop: "20px" }}>
+                  <FormControl
+                    value={linkAvailable || ""}
+                    onFocus={this.handleFocus}
+                    style={{ height: "20px", width: "200px" }}
+                    type="text"
+                    placeholder="Search"
+                    className="mr-sm-2"
+                    readOnly
+                  />
+                  <Button
+                    style={{ height: "26px" }}
+                    variant="outline-info"
+                    onClick={() => copyText(linkAvailable)}
+                  >
+                    Copy Link
+                  </Button>
+                </Form>
               </>
             )}
           </main>
@@ -60,11 +85,23 @@ class App extends Component {
     );
   }
 
+  handleFocus = () => {
+    document.getElementsByClassName("footer")[0].style.display = "none";
+  };
+  handleBlur = () => {
+    setTimeout(() => {
+      if (!document.hasFocus())
+        document.getElementsByClassName("footer")[0].style.display = "block";
+    }, 1000);
+  };
+
   dismiss = () => {
+    window.scrollTo(0, 0);
     this.setState({ showInfo: false });
   };
 
   dismissForever = () => {
+    window.scrollTo(0, 0);
     try {
       localStorage.setItem("wa-link-info", "hidden");
       this.setState({ showInfo: false });
@@ -87,11 +124,16 @@ class App extends Component {
       this.setState({ message });
   };
 
-  generateLink = () => {
+  generateLink = async () => {
+    this.setState({ loading: true });
     let { number, message } = this.state;
     let processedNumber = this.formatNumber(number);
-
-    copyText(this.formatLink(processedNumber, message));
+    const { data } = await this.formatLink(processedNumber, message);
+    if (data) {
+      window.navigator.vibrate(100);
+      this.setState({ loading: false });
+    }
+    this.setState({ linkAvailable: data.shortUrl });
   };
 
   formatNumber = (number) => {
@@ -112,11 +154,17 @@ class App extends Component {
 
   formatLink = (number, message) => {
     if (!number) return;
-    return message
+    const link = message
       ? `https://api.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(
           message
         )}`
       : `https://wa.me/${number}`;
+
+    try {
+      return http.post("/", { destination: link });
+    } catch (error) {
+      return link;
+    }
   };
 }
 

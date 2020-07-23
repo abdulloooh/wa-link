@@ -1,7 +1,7 @@
 import React from "react";
 import "../../App.css";
 
-const Button = ({ handleClick, value }) => {
+const CustomButton = ({ handleClick, value }) => {
   return (
     <input
       style={{ height: "30px", marginLeft: "20px", width: "200px" }}
@@ -12,4 +12,4 @@ const Button = ({ handleClick, value }) => {
   );
 };
 
-export default Button;
+export default CustomButton;

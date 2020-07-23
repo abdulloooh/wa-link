@@ -8,7 +8,6 @@ export function copyText(text) {
   //   document.execCommand("copy");
 
   //   //Alert the copied text
-  console.log(text);
   if (text) {
     //on http where navigator.clipboard ain't allowed
     typeof (navigator.clipboard === "undefined")

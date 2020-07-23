@@ -19,12 +19,13 @@ body {
 
 .App-header {
   min-height: 80vh;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   font-size: calc(8.5px + 2vmin);
   color: white;
+  margin: auto;
 }
 
 .App-link {
@@ -42,9 +43,9 @@ body {
 
 .container {
   width: 90%;
-  max-width: 650px;
+  max-width: 800px;
   /* line-height: 25px; */
-  margin-bottom: 20px;
+  margin: 30px auto;
 }
 
 a {
