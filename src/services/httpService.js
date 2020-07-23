@@ -2,7 +2,7 @@ import axios from "axios";
 // import { toast } from "react-toastify";
 import logger from "./logService";
 
-axios.defaults.baseURL = process.env.REACT_APP_REBRANDING_API_URL;
+// axios.defaults.baseURL = process.env.REACT_APP_REBRANDING_API_URL;
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.headers.post["apikey"] =
   process.env.REACT_APP_REBRANDING_API_KEY;

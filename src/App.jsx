@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import metrics from "./services/metricService";
 import { Form, Button, FormControl } from "react-bootstrap";
 import Info from "./component/info";
 import CustomButton from "./component/common/button";
@@ -145,6 +146,8 @@ class App extends Component {
       window.navigator.vibrate(100);
       this.setState({ loading: false });
       this.setState({ linkAvailable: data.shortUrl || data });
+      //update metrics record
+      await metrics.record();
     } else {
       toast.error("Network Error, Try again");
     }
@@ -174,7 +177,10 @@ class App extends Component {
         )}`
       : `https://wa.me/${number}`;
 
-    if (shouldItShort === "yes") return http.post("/", { destination: link });
+    if (shouldItShort === "yes")
+      return http.post(process.env.REACT_APP_REBRANDING_API_URL, {
+        destination: link,
+      });
     else return link;
   };
 }
