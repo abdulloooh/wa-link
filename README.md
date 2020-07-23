@@ -1,6 +1,6 @@
 # [WhatsApplink](http://whatslink.tk)
 
-### [Usage Stat](https://whatslink.tk/open)
+### [Usage Stat](https://rb.gy/t4fqhp)
 
 <!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/31dfe589-8aeb-4a06-9684-1723244129ba/deploy-status)](https://app.netlify.com/sites/whatsappr/deploys) -->
 
@@ -19,7 +19,7 @@ WhatsAppLink is a tool to generate shortened WhatsApp contact and message URLs e
 
 ### **For messaging saved and unsaved numbers:**
 
-- Input the whatsapp phonu number you want the link for
+- Input the whatsapp phone number you want the link for
 - Input pre-written message for customers to chat you up (if applicable)
 - Click Generate
   > This will Generate a url and shortened url using [rebrandly API](rebrandly.com) if their is network connectivity or it will return the original generated url which can be short or long depending on your inputs.
