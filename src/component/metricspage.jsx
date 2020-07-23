@@ -1,15 +1,19 @@
 import React, { Component } from "react";
-import "../metrics.css";
+import { Link } from "react-router-dom";
 import metrics from "../services/metricService";
+import "../metrics.css";
 
 class MetricsPage extends Component {
   state = { metric: "" };
   render() {
     const { metric } = this.state;
     return (
-      <div className="metrics">
-        {metric || "<Still working on this>"} total links generated
-      </div>
+      metric && (
+        <div className="metrics">
+          <p>📈 {metric} total links generated</p>
+          <Link to="/">Return Home</Link>
+        </div>
+      )
     );
   }
 

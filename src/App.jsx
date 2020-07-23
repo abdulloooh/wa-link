@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import metrics from "./services/metricService";
+import { toast } from "react-toastify";
+import Spinner from "./component/common/spinner";
 import { Form, Button, FormControl } from "react-bootstrap";
 import Info from "./component/info";
-import CustomButton from "./component/common/button";
 import Details from "./component/details";
+import CustomButton from "./component/common/button";
 import Footer from "./component/footer";
+import metrics from "./services/metricService";
 import { copyText } from "./services/copyToClipBoard";
+import http from "./services/httpService";
 import "./App.css";
 import "./footer.css";
-import { toast } from "react-toastify";
-import http from "./services/httpService";
-import Spinner from "./component/common/spinner";
 
 class App extends Component {
   state = {
@@ -34,7 +34,7 @@ class App extends Component {
         <div className="App App-header">
           <main className="container">
             {showInfo ? (
-              <>
+              <React.Fragment>
                 <Info />
                 <CustomButton
                   handleClick={this.dismiss}
@@ -45,9 +45,9 @@ class App extends Component {
                   handleClick={this.dismissForever}
                   value="Dismiss this info forever"
                 />
-              </>
+              </React.Fragment>
             ) : (
-              <>
+              <React.Fragment>
                 {" "}
                 <Details
                   number={number}
@@ -79,7 +79,7 @@ class App extends Component {
                     </Button>
                   </Form>
                 )}
-              </>
+              </React.Fragment>
             )}
           </main>
         </div>

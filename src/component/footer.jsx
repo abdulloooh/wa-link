@@ -1,19 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <small className="footer">
       <hr />
-      Created with 💚 by Abdullah. <br /> Ping me on Twitter to suggest a
-      feature:
-      <a href="https://twitter.com/abdulloooh">@abdulloooh</a>
       <p>
         <span role="img" aria-label="rocket-emoji">
           🚀
         </span>
         <a href="https://github.com/abdulloooh/wa-link">
           Contribute to this project
-        </a>
+        </a>{" "}
+        <Link to="/open">📈 See Usage Stat</Link>
+      </p>
+      <p>
+        Created with 💚 by Abdullah. <br /> Ping me on Twitter to suggest a
+        feature: <a href="https://twitter.com/abdulloooh">@abdulloooh</a>
       </p>
       <p>
         Disclaimer: Whatsapp-link is not affiliated with WhatsApp Inc. <br />{" "}

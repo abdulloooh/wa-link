@@ -12,7 +12,7 @@ const Details = ({
   onBlur,
 }) => {
   return (
-    <>
+    <React.Fragment>
       <p>Enter your whatsapp number below</p>
       <input
         onFocus={() => onFocus()}
@@ -36,7 +36,7 @@ const Details = ({
       ></textarea>
       <br /> <br />
       <CustomButton handleClick={generateLink} value="Generate Link" />
-    </>
+    </React.Fragment>
   );
 };
 
