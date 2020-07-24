@@ -15,8 +15,8 @@ const Info = () => {
           you will be able to use it as a Mobile/Desktop App 👍.
         </p>
         <p>
-          This is a tool to quickly generate a personalized WhatssApp link with
-          a predefined message and share it with your audience on Social Media
+          This is a tool to quickly generate a personalized WhatsApp link with a
+          predefined message and share it with your audience on Social Media
         </p>
         <p>
           With the generated link, your customers and friends can send you
