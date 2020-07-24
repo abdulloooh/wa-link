@@ -1,3 +1,6 @@
+* {
+  font-family: "Roboto Slab", serif;
+}
 .App {
   text-align: center;
 }
@@ -15,6 +18,7 @@
 
 body {
   background-color: #282c34;
+  font-family: "Roboto Slab", serif !important;
 }
 
 .App-header {
