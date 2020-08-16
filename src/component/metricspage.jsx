@@ -8,12 +8,10 @@ class MetricsPage extends Component {
   render() {
     const { metric } = this.state;
     return (
-      metric && (
-        <div className="metrics">
-          <p>📈 {metric} total links generated</p>
-          <Link to="/">Return Home</Link>
-        </div>
-      )
+      <div className="metrics">
+        {metric ? <p>📈 {metric} total links generated</p> : <p>Fetching...</p>}
+        <Link to="/">Return Home</Link>
+      </div>
     );
   }
 
