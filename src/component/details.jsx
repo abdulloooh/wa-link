@@ -35,7 +35,9 @@ const Details = ({
         onChange={(e) => onMessageChange(e.target.value)}
       ></textarea>
       <br /> <br />
-      <CustomButton handleClick={generateLink} value="Generate Link" />
+      <div style={{ textAlign: "center" }}>
+        <CustomButton handleClick={generateLink} value="Generate Link" />
+      </div>
     </React.Fragment>
   );
 };

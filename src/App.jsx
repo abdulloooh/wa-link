@@ -36,7 +36,7 @@ class App extends Component {
             {showInfo ? (
               <React.Fragment>
                 <Info />
-                <div style={{ textAlign: "center" }}>
+                <div>
                   <CustomButton
                     handleClick={this.dismissForever}
                     value="Dismiss this info forever"
@@ -59,27 +59,29 @@ class App extends Component {
                   onFocus={this.handleFocus}
                   onBlur={this.handleBlur}
                 />
-                <Spinner loading={loading} />
-                {linkAvailable && (
-                  <Form inline style={{ marginTop: "20px" }}>
-                    <FormControl
-                      value={linkAvailable || ""}
-                      onFocus={this.handleFocus}
-                      style={{ height: "20px", width: "200px" }}
-                      type="text"
-                      placeholder="Search"
-                      className="mr-sm-2"
-                      readOnly
-                    />
-                    <Button
-                      style={{ height: "26px" }}
-                      variant="outline-info"
-                      onClick={() => copyText(linkAvailable)}
-                    >
-                      Copy Link
-                    </Button>
-                  </Form>
-                )}
+                <div style={{ textAlign: "center" }}>
+                  <Spinner loading={loading} />
+                  {linkAvailable && (
+                    <Form inline style={{ marginTop: "20px" }}>
+                      <FormControl
+                        value={linkAvailable || ""}
+                        onFocus={this.handleFocus}
+                        style={{ height: "20px", width: "200px" }}
+                        type="text"
+                        placeholder="Search"
+                        className="mr-sm-2"
+                        readOnly
+                      />
+                      <Button
+                        style={{ height: "26px", textAlign: "center" }}
+                        variant="outline-info"
+                        onClick={() => copyText(linkAvailable)}
+                      >
+                        Copy Link
+                      </Button>
+                    </Form>
+                  )}
+                </div>
               </React.Fragment>
             )}
           </main>
