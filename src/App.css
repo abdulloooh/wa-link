@@ -2,7 +2,7 @@
   font-family: "Roboto Slab", serif;
 }
 .App {
-  text-align: center;
+  text-justify: distribute;
 }
 
 .App-logo {
@@ -47,7 +47,7 @@ body {
 
 .container {
   width: 90%;
-  max-width: 800px;
+  max-width: 900px;
   /* line-height: 25px; */
   margin: 30px auto;
 }
@@ -57,6 +57,10 @@ a {
 }
 
 .install {
-  font-family: monospace;
+  /* font-family: monospace; */
   font-weight: bold;
+}
+
+input[type="button"] {
+  margin: 5px;
 }

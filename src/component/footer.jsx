@@ -20,7 +20,7 @@ const Footer = () => {
       </p>
       <p>
         Disclaimer: Whatsapp-link is not affiliated with WhatsApp Inc. <br />{" "}
-        2020 &copy; Whatsapp-link | All rights reserved{" "}
+        2020 &copy; Whatsapp-link
       </p>
     </small>
   );

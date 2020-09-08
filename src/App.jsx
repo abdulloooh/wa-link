@@ -36,15 +36,16 @@ class App extends Component {
             {showInfo ? (
               <React.Fragment>
                 <Info />
-                <CustomButton
-                  handleClick={this.dismiss}
-                  value="Let's get down to business"
-                />{" "}
-                <hr />
-                <CustomButton
-                  handleClick={this.dismissForever}
-                  value="Dismiss this info forever"
-                />
+                <div style={{ textAlign: "center" }}>
+                  <CustomButton
+                    handleClick={this.dismissForever}
+                    value="Dismiss this info forever"
+                  />
+                  <CustomButton
+                    handleClick={this.dismiss}
+                    value="Let's get down to business"
+                  />
+                </div>
               </React.Fragment>
             ) : (
               <React.Fragment>

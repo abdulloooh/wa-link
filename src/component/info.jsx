@@ -11,8 +11,8 @@ const Info = () => {
           </span>
         </p>
         <p className="install" style={{ color: "lightgreen" }}>
-          You will be prompted to add this site to your Home Screen, ACCEPT and
-          you will be able to use it as a Mobile/Desktop App 👍.
+          You might be prompted to add this site to your Home Screen, ACCEPT and
+          you will be able to use it as a Mobile/Desktop App 👍
         </p>
         <p>
           This is a tool to quickly generate a personalized WhatsApp link with a
@@ -23,15 +23,27 @@ const Info = () => {
           Whatsapp messages from anywhere on the internet without having to add
           your number to their contact list
         </p>
-        <p style={{ textAlign: "center" }}>
-          Then you can send broadcast that include message like <br /> "Reach me
-          on <a href="https://wa.me/2349036058937"> wa.me/2349036058937</a> for
+        <p
+          style={
+            {
+              /*textAlign: "center"*/
+            }
+          }
+        >
+          Then you can send broadcast that include message like "Reach me on
+          Whatsapp with
+          <a href="https://wa.me/2349036058937"> wa.me/2349036058937</a> for
           more enquiry"
         </p>
-        <p style={{ textAlign: "center" }}>
-          Or with prewritten message such as
-          <br />
-          <a href="https://bit.ly/3jvhbaK">https://bit.ly/3jvhbaK</a>
+        <p
+          style={
+            {
+              /*textAlign: "center"*/
+            }
+          }
+        >
+          Or with prewritten message such as {""}
+          <a href="http://rebrand.ly/r4r11cu">rebrand.ly/r4r11cu</a>
         </p>
       </section>
     </>
