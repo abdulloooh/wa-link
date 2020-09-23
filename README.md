@@ -5,7 +5,7 @@
 <!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/31dfe589-8aeb-4a06-9684-1723244129ba/deploy-status)](https://app.netlify.com/sites/whatsappr/deploys) -->
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Website](https://img.shields.io/website?down_message=Offline&label=Website&up_message=Online&url=https%3A%2F%2Fwhatlink.herokuapp.com)](http://whatslink.tk)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d2c89c9b-4a87-4dd4-b8e6-33821bc9c9bf/deploy-status)](https://app.netlify.com/sites/stoic-cray-602c09/deploys)
 
 <!-- ![Star this repository](https://img.shields.io/github/stars/recurshawn/WhatsAppr?style=social) -->
 <!-- [![Follow me on Twitter](https://img.shields.io/twitter/follow/abdulloooh?style=social)](https://twitter.com/abdulloooh) -->
