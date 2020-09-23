@@ -1,6 +1,6 @@
 # [WhatsApplink](http://whatslink.tk)
 
-### [Usage Stat](http://whatslink.tk/open)
+### [Usage Stat](https://stoic-cray-602c09.netlify.app/open)
 
 <!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/31dfe589-8aeb-4a06-9684-1723244129ba/deploy-status)](https://app.netlify.com/sites/whatsappr/deploys) -->
 
