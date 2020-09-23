@@ -12,7 +12,10 @@ const Info = () => {
         </p>
         <p className="install" style={{ color: "lightgreen" }}>
           You might be prompted to add this site to your Home Screen, ACCEPT and
-          you will be able to use it as a Mobile/Desktop App 👍
+          you will be able to use it as a Mobile/Desktop App{" "}
+          <span role="img" aria-label="thumbs_up">
+            👍
+          </span>
         </p>
         <p>
           This is a tool to quickly generate a personalized WhatsApp link with a
